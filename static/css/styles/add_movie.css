@@ -1,0 +1,74 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    display: flex;
+    height: 100vh;
+    justify-content: center;
+    align-items: center;
+    filter: brightness(50%);
+    background:url('images/poster_back.png') no-repeat center center fixed;;
+    background-size: cover;
+
+
+}
+
+.container{
+    width: 100%;
+    max-width: 650px;
+    background: rgba(0,0,0,0.5);
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: inset -2px 2px 2px white;
+
+}
+.header{
+    font-size: 30px;
+    color: aliceblue;
+    padding-bottom: 6px;
+    border-bottom: solid 1px white;
+}
+.cotainer2{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.input_box label{
+    width:95%;
+    color: aliceblue;
+
+}
+.input_box input{
+    height: 40px;
+    width:95%;
+    border-radius: 7px;
+    outline:none;
+    border: 0 10px;
+    padding:10px 10px;
+}
+.gender_section label{
+    width:95%;
+    color: aliceblue;
+    margin-top: 20px;
+
+}
+.checkbox_section{
+    width:95%;
+    color: aliceblue;
+    margin: 10px 0;
+
+}
+.btn{
+    width:95%;
+    color:rgb(238, 235, 231);
+    font-size: 20px;
+    background: rgb(82, 80, 80);
+    padding: 10px;
+    border-radius: 3px;
+    margin-top: 15px;
+
+}

@@ -1,0 +1,36 @@
+
+{% extends "base.html" %}
+{% block content %}
+{% load static %}
+<div class="container my-5">
+  <div class="card my-4">
+    <div class="card-body">
+  <h2 class="text-center">Profile</h2>
+  <form method="post" class="form-horizontal">
+    {% csrf_token %}
+    {{ user_form.as_p }}
+    {{ profile_form.as_p }}
+    <button  type="submit" class="btn btn-danger">Save</button>
+  </form>
+    </div>
+  </div>
+
+   <div class="row">
+    {% for movie in movies %}
+      <div class= "card">
+          <br>
+          <div class="card-body">
+              <a href="{{ movie.get_absolute_url }}">
+                  <img class="card-img-top my-image img-fluid" src="{{ movie.poster.url }}" alt="{{ movie.title }}" style="width:250px; height:300px;">
+              </a>
+              <h4>{{ movie.title }}</h4>
+              <i>{{ movie.release_date }}</i>
+
+          </div>
+      </div>
+    {% endfor %}
+  </div>
+</div>
+</div>
+{% endblock %}
+

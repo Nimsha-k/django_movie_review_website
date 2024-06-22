@@ -1,0 +1,62 @@
+{% load static %}
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark text-white">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="/">
+      <img src="{% static 'css/styles/images/MovieMix_logo.png' %}" alt="MovieSite Logo" width="100" height="50">
+    </a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navlyid,j;mhbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+
+        <li class="nav-item">
+          <a class="nav-link" href="{% url 'movie_app:index' %}">Home</a>
+        </li>
+        <li class="nav-item dropdown  {% if 'movie_app' in request.path %} active {% endif %}">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Movies
+          </a>
+
+             <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <li><a class="nav-link" href="{% url 'movie_app:index' %}">All Movies</a></li>
+
+             {% for cat in links %}
+
+            <li><a class="dropdown-item" href="{{cat.get_url}}">{{cat.title}}</a></li>
+            {% endfor %}
+            <li><hr class="dropdown-divider"></li>
+            </ul>
+              <li class="nav-item">
+          <a class="nav-link" href="{% url 'movie_app:add_movies' %}">Add Movie</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="">All Movies</a>
+        </li>
+
+          </ul>
+          <ul class="navbar-nav ml-auto">
+            {% if user.is_authenticated %}
+                  <li>Hello...{{user.username}}</li>
+                <li class="nav-item">
+                    <a class="nav-link" href=" {% url 'accounts:profile' %}">My Profile</a>
+
+                  </li>
+              <li class="nav-item">
+                    <a class="nav-link" href="{% url 'accounts:logout' %}">Logout</a>
+
+                  </li>
+            {% else %}
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'accounts:register' %}">Register</a>
+                </li>
+                <li class="nav-item">
+                <a class="nav-link" href="{% url 'accounts:login' %}">Login</a>
+                </li>
+            {% endif %}
+      </ul>
+
+
+    </div>
+  </div>
+</nav>
